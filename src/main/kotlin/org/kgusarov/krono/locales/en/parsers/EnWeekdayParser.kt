@@ -6,32 +6,20 @@ import org.kgusarov.krono.ParserResultFactory
 import org.kgusarov.krono.ParsingContext
 import org.kgusarov.krono.RegExpMatchArray
 import org.kgusarov.krono.common.calculation.createParsingComponentsAtWeekday
-import org.kgusarov.krono.common.parsers.AbstractParserWithWordBoundaryChecking
+import org.kgusarov.krono.common.parsers.AbstractWeekdayParser
 import org.kgusarov.krono.locales.en.EnConstants
 import org.kgusarov.krono.utils.matchAnyPattern
 import java.time.DayOfWeek
 
 @SuppressFBWarnings("EI_EXPOSE_REP")
-class EnWeekdayParser : AbstractParserWithWordBoundaryChecking() {
+class EnWeekdayParser : AbstractWeekdayParser() {
     override fun innerPattern(context: ParsingContext) = PATTERN
 
     override fun innerExtract(
         context: ParsingContext,
         match: RegExpMatchArray,
     ): ParserResult {
-        val prefix = match[PREFIX_GROUP]
-        val postfix = match[POSTFIX_GROUP]
-        val modifierWord =
-            (
-                if (!prefix.isNullOrEmpty()) {
-                    prefix
-                } else if (!postfix.isNullOrEmpty()) {
-                    postfix
-                } else {
-                    ""
-                }
-            ).lowercase()
-
+        val modifierWord = getModifierWord(match, PREFIX_GROUP, POSTFIX_GROUP)
         val modifier: String? =
             when (modifierWord) {
                 "last", "past" -> "last"

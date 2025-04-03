@@ -4,7 +4,6 @@ import org.kgusarov.krono.KronoConfiguration
 import org.kgusarov.krono.common.parsers.SlashDateFormatParser
 import org.kgusarov.krono.common.refiners.OverlapRemovalRefiner
 import org.kgusarov.krono.includeCommonConfiguration
-import org.kgusarov.krono.locales.en.parsers.ENYearMonthDayParser
 import org.kgusarov.krono.locales.en.parsers.EnCasualDateParser
 import org.kgusarov.krono.locales.en.parsers.EnCasualTimeParser
 import org.kgusarov.krono.locales.en.parsers.EnMonthNameLittleEndianParser
@@ -18,6 +17,7 @@ import org.kgusarov.krono.locales.en.parsers.EnTimeUnitCasualRelativeFormatParse
 import org.kgusarov.krono.locales.en.parsers.EnTimeUnitLaterFormatParser
 import org.kgusarov.krono.locales.en.parsers.EnTimeUnitWithinFormatParser
 import org.kgusarov.krono.locales.en.parsers.EnWeekdayParser
+import org.kgusarov.krono.locales.en.parsers.EnYearMonthDayParser
 import org.kgusarov.krono.locales.en.refiners.EnExtractYearSuffixRefiner
 import org.kgusarov.krono.locales.en.refiners.EnMergeDateRangeRefiner
 import org.kgusarov.krono.locales.en.refiners.EnMergeDateTimeRefiner
@@ -50,7 +50,7 @@ class EnDefaultConfiguration {
                 strictMode,
             )
 
-        result.parsers.addFirst(ENYearMonthDayParser(strictMode))
+        result.parsers.addFirst(EnYearMonthDayParser(strictMode))
 
         result.refiners.addFirst(EnMergeRelativeFollowByDateRefiner())
         result.refiners.addFirst(EnMergeRelativeAfterDateRefiner())

@@ -12,7 +12,7 @@ import org.kgusarov.krono.locales.en.EnConstants
 import org.kgusarov.krono.utils.matchAnyPattern
 
 @SuppressFBWarnings("EI_EXPOSE_REP")
-class ENYearMonthDayParser(
+class EnYearMonthDayParser(
     private val strictMonthDateOrder: Boolean,
 ) : AbstractParserWithWordBoundaryChecking() {
     override fun innerPattern(context: ParsingContext) = PATTERN

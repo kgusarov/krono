@@ -17,9 +17,9 @@ class FrWeekdayParser : AbstractParserWithWordBoundaryChecking() {
     override fun innerExtract(
         context: ParsingContext,
         match: RegExpMatchArray,
-    ): ParserResult? {
+    ): ParserResult {
         val dayOfWeek = match[WEEKDAY_GROUP]?.lowercase()
-        val weekday = FrConstants.WEEKDAY_DICTIONARY[dayOfWeek] ?: return null
+        val weekday = FrConstants.WEEKDAY_DICTIONARY[dayOfWeek]!!
 
         var suffix = match[POSTFIX_GROUP]
         suffix = suffix ?: ""

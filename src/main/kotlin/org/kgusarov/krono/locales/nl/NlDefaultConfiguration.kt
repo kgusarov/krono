@@ -3,8 +3,20 @@ package org.kgusarov.krono.locales.nl
 import org.kgusarov.krono.KronoConfiguration
 import org.kgusarov.krono.common.parsers.SlashDateFormatParser
 import org.kgusarov.krono.includeCommonConfiguration
+import org.kgusarov.krono.locales.nl.parsers.NlCasualDateParser
+import org.kgusarov.krono.locales.nl.parsers.NlCasualDateTimeParser
+import org.kgusarov.krono.locales.nl.parsers.NlCasualTimeParser
+import org.kgusarov.krono.locales.nl.parsers.NlCasualYearMonthDayParser
 import org.kgusarov.krono.locales.nl.parsers.NlMonthNameMiddleEndianParser
+import org.kgusarov.krono.locales.nl.parsers.NlMonthNameParser
+import org.kgusarov.krono.locales.nl.parsers.NlRelativeDateFormatParser
+import org.kgusarov.krono.locales.nl.parsers.NlSlashMonthFormatParser
+import org.kgusarov.krono.locales.nl.parsers.NlTimeExpressionParser
+import org.kgusarov.krono.locales.nl.parsers.NlTimeUnitAgoFormatParser
+import org.kgusarov.krono.locales.nl.parsers.NlTimeUnitCasualRelativeFormatParser
+import org.kgusarov.krono.locales.nl.parsers.NlTimeUnitLaterFormatParser
 import org.kgusarov.krono.locales.nl.parsers.NlTimeUnitWithinFormatParser
+import org.kgusarov.krono.locales.nl.parsers.NlWeekdayParser
 import org.kgusarov.krono.locales.nl.refiners.NlMergeDateRangeRefiner
 import org.kgusarov.krono.locales.nl.refiners.NlMergeDateTimeRefiner
 
@@ -19,18 +31,13 @@ class NlDefaultConfiguration {
                     SlashDateFormatParser(littleEndian),
                     NlTimeUnitWithinFormatParser(),
                     NlMonthNameMiddleEndianParser(),
-                    /*
-                    + new SlashDateFormatParser(littleEndian),
-                    + new NLTimeUnitWithinFormatParser(),
-                    + new NLMonthNameMiddleEndianParser(),
-                    new NLMonthNameParser(),
-                    new NLWeekdayParser(),
-                    new NLCasualYearMonthDayParser(),
-                    new NLSlashMonthFormatParser(),
-                    new NLTimeExpressionParser(strictMode),
-                    new NLTimeUnitAgoFormatParser(strictMode),
-                    new NLTimeUnitLaterFormatParser(strictMode),
-                     */
+                    NlMonthNameParser(),
+                    NlWeekdayParser(),
+                    NlCasualYearMonthDayParser(),
+                    NlSlashMonthFormatParser(),
+                    NlTimeExpressionParser(strictMode),
+                    NlTimeUnitAgoFormatParser(strictMode),
+                    NlTimeUnitLaterFormatParser(strictMode),
                 ),
                 mutableListOf(
                     NlMergeDateTimeRefiner(),
@@ -43,14 +50,13 @@ class NlDefaultConfiguration {
     fun createCasualConfiguration(littleEndian: Boolean = true): KronoConfiguration {
         val result = createConfiguration(false, littleEndian)
 
-        /*
-        option.parsers.unshift(new NLCasualDateParser());
-    option.parsers.unshift(new NLCasualTimeParser());
-    option.parsers.unshift(new NLCasualDateTimeParser());
-    option.parsers.unshift(new NLMonthNameParser());
-    option.parsers.unshift(new NLRelativeDateFormatParser());
-    option.parsers.unshift(new NLTimeUnitCasualRelativeFormatParser());
-         */
+        result.parsers.addFirst(NlCasualDateParser())
+        result.parsers.addFirst(NlCasualTimeParser())
+        result.parsers.addFirst(NlCasualDateTimeParser())
+        result.parsers.addFirst(NlMonthNameParser())
+        result.parsers.addFirst(NlRelativeDateFormatParser())
+        result.parsers.addFirst(NlTimeUnitCasualRelativeFormatParser())
+
         return result
     }
 }

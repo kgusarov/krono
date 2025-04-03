@@ -1,4 +1,4 @@
-package org.kgusarov.krono.locales.en.parsers
+package org.kgusarov.krono.locales.nl.parsers
 
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings
 import org.kgusarov.krono.KronoTimeUnits
@@ -8,11 +8,11 @@ import org.kgusarov.krono.ParsingComponents
 import org.kgusarov.krono.ParsingContext
 import org.kgusarov.krono.RegExpMatchArray
 import org.kgusarov.krono.common.parsers.AbstractRelativeDateFormatParser
-import org.kgusarov.krono.locales.en.EnConstants
+import org.kgusarov.krono.locales.nl.NlConstants
 import org.kgusarov.krono.utils.matchAnyPattern
 
 @SuppressFBWarnings("EI_EXPOSE_REP")
-class EnRelativeDateFormatParser : AbstractRelativeDateFormatParser() {
+class NlRelativeDateFormatParser : AbstractRelativeDateFormatParser() {
     override fun innerPattern(context: ParsingContext) = PATTERN
 
     override fun innerExtract(
@@ -21,16 +21,16 @@ class EnRelativeDateFormatParser : AbstractRelativeDateFormatParser() {
     ): ParserResult {
         val modifier = match[MODIFIER_WORD_GROUP]!!.lowercase()
         val unitWord = match[RELATIVE_WORD_GROUP]!!.lowercase()
-        val timeunit = EnConstants.TIME_UNIT_DICTIONARY[unitWord]!!
+        val unit = NlConstants.TIME_UNIT_DICTIONARY[unitWord]!!
 
-        if (modifier == "next" || modifier.startsWith("after")) {
-            val timeUnits: KronoTimeUnits = mutableMapOf(timeunit to 1)
+        if (modifier == "volgend" || modifier == "komend" || modifier == "aankomend") {
+            val timeUnits: KronoTimeUnits = mutableMapOf(unit to 1)
             val components = ParsingComponents.createRelativeFromUnits(context.reference, timeUnits)
             return ParserResultFactory(components)
         }
 
-        if (modifier == "last" || modifier == "past") {
-            val timeUnits: KronoTimeUnits = mutableMapOf(timeunit to -1)
+        if (modifier == "afgelopen" || modifier == "vorig") {
+            val timeUnits: KronoTimeUnits = mutableMapOf(unit to -1)
             val components = ParsingComponents.createRelativeFromUnits(context.reference, timeUnits)
             return ParserResultFactory(components)
         }
@@ -51,19 +51,19 @@ class EnRelativeDateFormatParser : AbstractRelativeDateFormatParser() {
         @JvmStatic
         private val PATTERN =
             Regex(
-                "(this|last|past|next|after\\s*this)\\s*(${matchAnyPattern(EnConstants.TIME_UNIT_DICTIONARY)})(?=\\s*)" +
-                    "(?=\\W|\$)",
-                RegexOption.IGNORE_CASE,
+                "(dit|deze|(?:aan)?komend|volgend|afgelopen|vorig)e?\\s*" +
+                    "(${matchAnyPattern(NlConstants.TIME_UNIT_DICTIONARY)})(?=\\s*)" +
+                    "(?=\\W|$)",
             )
 
         @JvmStatic
         private val WEEK_PATTERN = Regex("week", RegexOption.IGNORE_CASE)
 
         @JvmStatic
-        private val MONTH_PATTERN = Regex("month", RegexOption.IGNORE_CASE)
+        private val MONTH_PATTERN = Regex("maand", RegexOption.IGNORE_CASE)
 
         @JvmStatic
-        private val YEAR_PATTERN = Regex("year", RegexOption.IGNORE_CASE)
+        private val YEAR_PATTERN = Regex("jaar", RegexOption.IGNORE_CASE)
 
         private const val MODIFIER_WORD_GROUP = 1
         private const val RELATIVE_WORD_GROUP = 2

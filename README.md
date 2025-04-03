@@ -25,8 +25,8 @@ Latest observed commit in the original repository: [80c126ba1df547c2092cb4412be5
 - [x] Portuguese tests
 - [x] German
 - [x] German tests
-- [ ] Dutch
-- [ ] Dutch tests
+- [x] Dutch
+- [x] Dutch tests
 - [ ] Russian
 - [ ] Russian tests
 - [ ] Ukrainian
