@@ -13,7 +13,7 @@ internal class EnInterStdTest {
     @Test
     internal fun `before this 2013-2-7`() {
         testSingleCase(Krono.enStrict, "Let's finish this before this 2013-2-7.", REF_DATE) {
-            with (it.start) {
+            with(it.start) {
                 assertThat(year()).isEqualTo(2013)
                 assertThat(month()).isEqualTo(2)
                 assertThat(day()).isEqualTo(7)
@@ -28,7 +28,7 @@ internal class EnInterStdTest {
         testSingleCase(Krono.enStrict, "1994-11-05T08:15:30-05:30", REF_DATE) {
             assertThat(it.text).isEqualTo("1994-11-05T08:15:30-05:30")
 
-            with (it.start) {
+            with(it.start) {
                 assertThat(year()).isEqualTo(1994)
                 assertThat(month()).isEqualTo(11)
                 assertThat(day()).isEqualTo(5)
@@ -47,7 +47,7 @@ internal class EnInterStdTest {
         testSingleCase(Krono.enStrict, "1994-11-05T13:15:30Z", REF_DATE) {
             assertThat(it.text).isEqualTo("1994-11-05T13:15:30Z")
 
-            with (it.start) {
+            with(it.start) {
                 assertThat(year()).isEqualTo(1994)
                 assertThat(month()).isEqualTo(11)
                 assertThat(day()).isEqualTo(5)
@@ -66,7 +66,7 @@ internal class EnInterStdTest {
         testSingleCase(Krono.enStrict, "2016-05-07T23:45:00.487+01:00", REF_DATE) {
             assertThat(it.text).isEqualTo("2016-05-07T23:45:00.487+01:00")
 
-            with (it.start) {
+            with(it.start) {
                 assertThat(year()).isEqualTo(2016)
                 assertThat(month()).isEqualTo(5)
                 assertThat(day()).isEqualTo(7)
@@ -86,7 +86,7 @@ internal class EnInterStdTest {
         testSingleCase(Krono.enStrict, "1994-11-05T13:15:30", REF_DATE) {
             assertThat(it.text).isEqualTo("1994-11-05T13:15:30")
 
-            with (it.start) {
+            with(it.start) {
                 assertThat(year()).isEqualTo(1994)
                 assertThat(month()).isEqualTo(11)
                 assertThat(day()).isEqualTo(5)
@@ -106,7 +106,7 @@ internal class EnInterStdTest {
         testSingleCase(Krono.enStrict, "2015-07-31T12:00:00", REF_DATE) {
             assertThat(it.text).isEqualTo("2015-07-31T12:00:00")
 
-            with (it.start) {
+            with(it.start) {
                 assertThat(year()).isEqualTo(2015)
                 assertThat(month()).isEqualTo(7)
                 assertThat(day()).isEqualTo(31)

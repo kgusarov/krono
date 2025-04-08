@@ -79,7 +79,7 @@ internal class NlTimeUnitsCasualRelativeTest {
 
     companion object {
         @JvmStatic
-        fun negativeTimeUnitsArgs() : Stream<Arguments> = Stream.of(
+        fun negativeTimeUnitsArgs(): Stream<Arguments> = Stream.of(
             Arguments.of("afgelopen 2 weken", "2016-10-01T12:00:00", "2016-09-17T12:00:00"),
             Arguments.of("afgelopen twee weken", "2016-10-01T12:00:00", "2016-09-17T12:00:00"),
             Arguments.of("afgelopen 2 dagen", "2016-10-01T12:00:00", "2016-09-29T12:00:00"),
@@ -87,7 +87,7 @@ internal class NlTimeUnitsCasualRelativeTest {
         )
 
         @JvmStatic
-        fun plusSignArgs() : Stream<Arguments> = Stream.of(
+        fun plusSignArgs(): Stream<Arguments> = Stream.of(
             Arguments.of("+15 minuten", "2012-08-10T12:14:00", "2012-08-10T12:29:00"),
             Arguments.of("+15min", "2012-08-10T12:14:00", "2012-08-10T12:29:00"),
             Arguments.of("+1 dag 2 uur", "2012-08-10T12:14:00", "2012-08-11T14:14:00"),

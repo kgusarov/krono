@@ -78,13 +78,23 @@ internal class EnCasualTest {
 
     @ParameterizedTest
     @MethodSource("casualDateRangeArgs")
-    internal fun `casual date range`(text: String, refDate: String, expectedStartDate: String, expectedEndDate: String) {
+    internal fun `casual date range`(
+        text: String,
+        refDate: String,
+        expectedStartDate: String,
+        expectedEndDate: String
+    ) {
         testWithExpectedRange(Krono.enCasual, text, refDate, expectedStartDate, expectedEndDate)
     }
 
     @ParameterizedTest
     @MethodSource("casualTimeImplicationArgs")
-    internal fun `casual time implication`(text: String, refDate: String, expectedStartDate: String, expectedEndDate: String) {
+    internal fun `casual time implication`(
+        text: String,
+        refDate: String,
+        expectedStartDate: String,
+        expectedEndDate: String
+    ) {
         val result = testWithExpectedRange(Krono.enCasual, text, refDate, expectedStartDate, expectedEndDate)
         assertThat(result.start.certainHour()).isFalse()
         assertThat(result.end!!.certainHour()).isFalse()
@@ -163,10 +173,16 @@ internal class EnCasualTest {
         @JvmStatic
         fun casualTimeImplicationArgs(): Stream<Arguments> = Stream.of(
             Arguments.of(
-                "annual leave from today morning to tomorrow", "2012-08-04T12:00:00", "2012-08-04T06:00:00", "2012-08-05T12:00:00"
+                "annual leave from today morning to tomorrow",
+                "2012-08-04T12:00:00",
+                "2012-08-04T06:00:00",
+                "2012-08-05T12:00:00"
             ),
             Arguments.of(
-                "annual leave from today to tomorrow afternoon", "2012-08-04T12:00:00", "2012-08-04T12:00:00", "2012-08-05T15:00:00"
+                "annual leave from today to tomorrow afternoon",
+                "2012-08-04T12:00:00",
+                "2012-08-04T12:00:00",
+                "2012-08-05T15:00:00"
             ),
         )
 

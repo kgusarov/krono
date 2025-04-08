@@ -35,14 +35,17 @@ class NlCasualDateTimeParser : AbstractParserWithWordBoundaryChecking() {
                 component.imply(KronoComponents.Meridiem, KronoMeridiem.AM)
                 component.imply(KronoComponents.Hour, 6)
             }
+
             "middag" -> {
                 component.imply(KronoComponents.Meridiem, KronoMeridiem.AM)
                 component.imply(KronoComponents.Hour, 12)
             }
+
             "namiddag" -> {
                 component.imply(KronoComponents.Meridiem, KronoMeridiem.PM)
                 component.imply(KronoComponents.Hour, 15)
             }
+
             "avond" -> {
                 component.imply(KronoComponents.Meridiem, KronoMeridiem.PM)
                 component.imply(KronoComponents.Hour, 20)

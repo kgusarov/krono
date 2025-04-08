@@ -37,14 +37,14 @@ internal class NlTimeExpressionTest {
         testSingleCase(Krono.nlCasual, "10:00:00 - 21:45:00", "2016-10-01T08:00:00") {
             assertThat(it.text).isEqualTo("10:00:00 - 21:45:00")
 
-            with (it.start) {
+            with(it.start) {
                 assertThat(hour()).isEqualTo(10)
                 assertThat(minute()).isEqualTo(0)
                 assertThat(second()).isEqualTo(0)
                 assertThat(meridiem()).isEqualTo(KronoMeridiem.AM)
             }
 
-            with (it.end!!) {
+            with(it.end!!) {
                 assertThat(hour()).isEqualTo(21)
                 assertThat(minute()).isEqualTo(45)
                 assertThat(second()).isEqualTo(0)

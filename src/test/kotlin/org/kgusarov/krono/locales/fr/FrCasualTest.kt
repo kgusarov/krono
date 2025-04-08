@@ -25,7 +25,7 @@ internal class FrCasualTest {
             assertThat(it.text).isEqualTo("24 août 2023 au 26 août 2023")
 
             with(it.start) {
-                 assertDate("2023-08-24T12:00:00")
+                assertDate("2023-08-24T12:00:00")
             }
 
             with(it.end!!) {

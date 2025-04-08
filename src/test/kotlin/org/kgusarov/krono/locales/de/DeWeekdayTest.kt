@@ -11,7 +11,7 @@ internal class DeWeekdayTest {
     @Test
     internal fun `simple expression montag`() {
         testSingleCase(Krono.deCasual, "Montag", "2012-08-09T12:00:00") {
-            with (it.start) {
+            with(it.start) {
                 assertThat(year()).isEqualTo(2012)
                 assertThat(month()).isEqualTo(8)
                 assertThat(day()).isEqualTo(6)
@@ -31,7 +31,7 @@ internal class DeWeekdayTest {
     internal fun `simple expression am donnerstag`() {
         testSingleCase(Krono.deCasual, "am Donnerstag", "2012-08-09T12:00:00") {
             assertThat(it.text).isEqualTo("am Donnerstag")
-            with (it.start) {
+            with(it.start) {
                 assertThat(year()).isEqualTo(2012)
                 assertThat(month()).isEqualTo(8)
                 assertThat(day()).isEqualTo(9)
@@ -46,7 +46,7 @@ internal class DeWeekdayTest {
     internal fun `simple expression sonntag`() {
         testSingleCase(Krono.deCasual, "Sonntag", "2012-08-09T12:00:00") {
             assertThat(it.text).isEqualTo("Sonntag")
-            with (it.start) {
+            with(it.start) {
                 assertThat(year()).isEqualTo(2012)
                 assertThat(month()).isEqualTo(8)
                 assertThat(day()).isEqualTo(12)
@@ -62,7 +62,7 @@ internal class DeWeekdayTest {
         testSingleCase(Krono.deCasual, "Die Deadline war letzten Freitag...", "2012-08-09T12:00:00") {
             assertThat(it.index).isEqualTo(17)
             assertThat(it.text).isEqualTo("letzten Freitag")
-            with (it.start) {
+            with(it.start) {
                 assertThat(year()).isEqualTo(2012)
                 assertThat(month()).isEqualTo(8)
                 assertThat(day()).isEqualTo(3)
@@ -78,7 +78,7 @@ internal class DeWeekdayTest {
         testSingleCase(Krono.deCasual, "Treffen wir uns am Freitag nächste Woche", "2015-04-18T12:00:00") {
             assertThat(it.index).isEqualTo(16)
             assertThat(it.text).isEqualTo("am Freitag nächste Woche")
-            with (it.start) {
+            with(it.start) {
                 assertThat(year()).isEqualTo(2015)
                 assertThat(month()).isEqualTo(4)
                 assertThat(day()).isEqualTo(24)
@@ -94,7 +94,7 @@ internal class DeWeekdayTest {
         testSingleCase(Krono.deCasual, "Ich habe vor, am Dienstag nächste Woche freizunehmen", "2015-04-18T12:00:00") {
             assertThat(it.index).isEqualTo(14)
             assertThat(it.text).isEqualTo("am Dienstag nächste Woche")
-            with (it.start) {
+            with(it.start) {
                 assertThat(year()).isEqualTo(2015)
                 assertThat(month()).isEqualTo(4)
                 assertThat(day()).isEqualTo(21)
@@ -115,7 +115,7 @@ internal class DeWeekdayTest {
         ) {
             assertThat(it.index).isEqualTo(0)
             assertThat(it.text).isEqualTo("diesen Freitag bis diesen Montag")
-            with (it.start) {
+            with(it.start) {
                 assertThat(year()).isEqualTo(2016)
                 assertThat(month()).isEqualTo(8)
                 assertThat(day()).isEqualTo(5)
@@ -128,7 +128,7 @@ internal class DeWeekdayTest {
 
                 assertDate("2016-08-05T12:00:00")
             }
-            with (it.end!!) {
+            with(it.end!!) {
                 assertThat(year()).isEqualTo(2016)
                 assertThat(month()).isEqualTo(8)
                 assertThat(day()).isEqualTo(8)
@@ -149,7 +149,7 @@ internal class DeWeekdayTest {
         testSingleCase(Krono.deCasual, "Sonntag, den 7. Dezember 2014", "2012-08-09T12:00:00") {
             assertThat(it.index).isEqualTo(0)
             assertThat(it.text).isEqualTo("Sonntag, den 7. Dezember 2014")
-            with (it.start) {
+            with(it.start) {
                 assertThat(year()).isEqualTo(2014)
                 assertThat(month()).isEqualTo(12)
                 assertThat(day()).isEqualTo(7)
@@ -169,7 +169,7 @@ internal class DeWeekdayTest {
     internal fun `weekday overlap - sonntag 7 12 2014`() {
         testSingleCase(Krono.deCasual, "Sonntag 7.12.2014", "2012-08-09T12:00:00") {
             assertThat(it.text).isEqualTo("Sonntag 7.12.2014")
-            with (it.start) {
+            with(it.start) {
                 assertThat(year()).isEqualTo(2014)
                 assertThat(month()).isEqualTo(12)
                 assertThat(day()).isEqualTo(7)

@@ -16,7 +16,7 @@ internal class EsTimeUnitsWithinTest {
             assertThat(it.index).isEqualTo(23)
             assertThat(it.text).isEqualTo("en 5 días")
 
-            with (it.start) {
+            with(it.start) {
                 assertDate("2012-08-15T00:00:00")
             }
         }
@@ -28,7 +28,7 @@ internal class EsTimeUnitsWithinTest {
             assertThat(it.index).isEqualTo(23)
             assertThat(it.text).isEqualTo("en cinco días")
 
-            with (it.start) {
+            with(it.start) {
                 assertDate("2012-08-15T00:00:00")
             }
         }
@@ -40,7 +40,7 @@ internal class EsTimeUnitsWithinTest {
             assertThat(it.index).isEqualTo(0)
             assertThat(it.text).isEqualTo("en 5 minutos")
 
-            with (it.start) {
+            with(it.start) {
                 assertDate("2012-08-10T12:19:00")
             }
         }
@@ -52,7 +52,7 @@ internal class EsTimeUnitsWithinTest {
             assertThat(it.index).isEqualTo(0)
             assertThat(it.text).isEqualTo("por 5 minutos")
 
-            with (it.start) {
+            with(it.start) {
                 assertDate("2012-08-10T12:19:00")
             }
         }
@@ -64,7 +64,7 @@ internal class EsTimeUnitsWithinTest {
             assertThat(it.index).isEqualTo(0)
             assertThat(it.text).isEqualTo("en 1 hora")
 
-            with (it.start) {
+            with(it.start) {
                 assertDate("2012-08-10T13:14:00")
             }
         }
@@ -76,7 +76,7 @@ internal class EsTimeUnitsWithinTest {
             assertThat(it.index).isEqualTo(27)
             assertThat(it.text).isEqualTo("de 5 minutos")
 
-            with (it.start) {
+            with(it.start) {
                 assertDate("2012-08-10T12:19:00")
             }
         }
@@ -88,7 +88,7 @@ internal class EsTimeUnitsWithinTest {
             assertThat(it.index).isEqualTo(0)
             assertThat(it.text).isEqualTo("En 5 minutos")
 
-            with (it.start) {
+            with(it.start) {
                 assertDate("2012-08-10T12:19:00")
             }
         }
@@ -100,7 +100,7 @@ internal class EsTimeUnitsWithinTest {
             assertThat(it.index).isEqualTo(0)
             assertThat(it.text).isEqualTo("En 5 segundos")
 
-            with (it.start) {
+            with(it.start) {
                 assertDate("2012-08-10T12:14:05")
             }
         }
@@ -112,7 +112,7 @@ internal class EsTimeUnitsWithinTest {
             assertThat(it.index).isEqualTo(0)
             assertThat(it.text).isEqualTo("en dos semanas")
 
-            with (it.start) {
+            with(it.start) {
                 assertDate("2012-08-24T12:14:00")
             }
         }
@@ -124,7 +124,7 @@ internal class EsTimeUnitsWithinTest {
             assertThat(it.index).isEqualTo(0)
             assertThat(it.text).isEqualTo("dentro de un mes")
 
-            with (it.start) {
+            with(it.start) {
                 assertDate("2012-09-10T07:14:00")
             }
         }
@@ -136,7 +136,7 @@ internal class EsTimeUnitsWithinTest {
             assertThat(it.index).isEqualTo(0)
             assertThat(it.text).isEqualTo("en algunos meses")
 
-            with (it.start) {
+            with(it.start) {
                 assertDate("2012-10-10T22:14:00")
             }
         }
@@ -148,7 +148,7 @@ internal class EsTimeUnitsWithinTest {
             assertThat(it.index).isEqualTo(0)
             assertThat(it.text).isEqualTo("en un año")
 
-            with (it.start) {
+            with(it.start) {
                 assertDate("2013-08-10T12:14:00")
             }
         }
@@ -160,7 +160,7 @@ internal class EsTimeUnitsWithinTest {
             assertThat(it.index).isEqualTo(0)
             assertThat(it.text).isEqualTo("dentro de un año")
 
-            with (it.start) {
+            with(it.start) {
                 assertDate("2013-08-10T12:14:00")
             }
         }
@@ -172,7 +172,7 @@ internal class EsTimeUnitsWithinTest {
             assertThat(it.index).isEqualTo(0)
             assertThat(it.text).isEqualTo("En 5 Minutos")
 
-            with (it.start) {
+            with(it.start) {
                 assertDate("2012-08-10T12:19:00")
             }
         }
@@ -184,7 +184,7 @@ internal class EsTimeUnitsWithinTest {
             assertThat(it.index).isEqualTo(0)
             assertThat(it.text).isEqualTo("En 5 minutos")
 
-            with (it.start) {
+            with(it.start) {
                 assertDate("2012-08-10T12:19:00")
             }
         }
@@ -201,7 +201,7 @@ internal class EsTimeUnitsWithinTest {
             assertThat(it.index).isEqualTo(0)
             assertThat(it.text).isEqualTo("En 5 minutos hay")
 
-            with (it.start) {
+            with(it.start) {
                 assertOffsetDate("2012-08-10T12:19:00-08:00")
             }
         }

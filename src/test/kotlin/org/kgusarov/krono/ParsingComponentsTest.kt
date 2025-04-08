@@ -84,10 +84,12 @@ internal class ParsingComponentsTest {
     @ParameterizedTest
     @MethodSource("checkDstSkipArgs")
     internal fun `check non-existing date during DST skip`(expected: Boolean, vararg parts: Pair<KronoComponent, Int>) {
-        val reference = ReferenceWithTimezone(ParsingReference(
-            KronoDate.now(),
-            "CET",
-        ))
+        val reference = ReferenceWithTimezone(
+            ParsingReference(
+                KronoDate.now(),
+                "CET",
+            )
+        )
         val components = ParsingComponents(reference, *parts)
         assertThat(components.isValidDate()).isEqualTo(expected)
     }

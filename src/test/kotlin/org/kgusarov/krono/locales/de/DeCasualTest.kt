@@ -75,10 +75,16 @@ internal class DeCasualTest {
         @JvmStatic
         fun rangeExpressionArgs(): Stream<Arguments> = Stream.of(
             Arguments.of(
-                "Der Event ist heute - nächsten Freitag", "2012-08-04T12:00:00", "2012-08-04T12:00:00", "2012-08-10T12:00:00"
+                "Der Event ist heute - nächsten Freitag",
+                "2012-08-04T12:00:00",
+                "2012-08-04T12:00:00",
+                "2012-08-10T12:00:00"
             ),
             Arguments.of(
-                "Der Event ist heute - nächsten Freitag", "2012-08-10T12:00:00", "2012-08-10T12:00:00", "2012-08-17T12:00:00"
+                "Der Event ist heute - nächsten Freitag",
+                "2012-08-10T12:00:00",
+                "2012-08-10T12:00:00",
+                "2012-08-17T12:00:00"
             ),
         )
     }

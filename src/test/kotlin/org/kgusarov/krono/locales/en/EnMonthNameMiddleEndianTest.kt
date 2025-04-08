@@ -111,7 +111,11 @@ internal class EnMonthNameMiddleEndianTest {
         fun singleExpressionArgs(): Stream<Arguments> = Stream.of(
             Arguments.of("She is getting married soon (July 2017).", "2012-08-10T00:00:00", "2017-07-01T12:00:00"),
             Arguments.of("She is leaving in August.", "2012-08-10T00:00:00", "2012-08-01T12:00:00"),
-            Arguments.of("I am arriving sometime in August, 2012, probably.", "2012-08-10T00:00:00", "2012-08-01T12:00:00"),
+            Arguments.of(
+                "I am arriving sometime in August, 2012, probably.",
+                "2012-08-10T00:00:00",
+                "2012-08-01T12:00:00"
+            ),
             Arguments.of("August 10, 2012", "2012-08-10T00:00:00", "2012-08-10T12:00:00"),
             Arguments.of("Nov 12, 2011", "2012-08-10T00:00:00", "2011-11-12T12:00:00"),
             Arguments.of("The Deadline is August 10", "2012-08-10T00:00:00", "2012-08-10T12:00:00"),

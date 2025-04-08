@@ -16,7 +16,7 @@ A Kotlin port of https://github.com/wanasit/chrono
 Latest observed commit in the original repository: [80c126ba1df547c2092cb4412be5c4f1b1979f8d](https://github.com/wanasit/chrono/commit/80c126ba1df547c2092cb4412be5c4f1b1979f8d)
 
 - [x] English
-- [ ] English tests (in progress, most tests are ported)
+- [ ] English tests
 - [x] French
 - [x] French tests
 - [x] Spanish
@@ -27,8 +27,8 @@ Latest observed commit in the original repository: [80c126ba1df547c2092cb4412be5
 - [x] German tests
 - [x] Dutch
 - [x] Dutch tests
-- [ ] Russian
-- [ ] Russian tests
+- [x] Russian
+- [x] Russian tests
 - [ ] Ukrainian
 - [ ] Ukrainian tests
 - [ ] Chinese Hans

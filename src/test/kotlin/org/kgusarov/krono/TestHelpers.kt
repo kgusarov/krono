@@ -295,3 +295,22 @@ internal fun measureTime(block: () -> Unit): Stopwatch {
 
     return stopwatch
 }
+
+internal fun testSingleExpression(krono: Krono, text: String, refDate: String, expectedDate: String) {
+    testSingleCase(krono, text, refDate) {
+        it.start.assertDate(expectedDate)
+    }
+}
+
+internal fun testRangeExpression(
+    krono: Krono,
+    text: String,
+    refDate: String,
+    expectedStartDate: String,
+    expectedEndDate: String,
+) {
+    testSingleCase(krono, text, refDate) {
+        it.start.assertDate(expectedStartDate)
+        it.end!!.assertDate(expectedEndDate)
+    }
+}

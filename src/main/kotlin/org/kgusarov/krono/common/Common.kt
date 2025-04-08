@@ -2,7 +2,10 @@ package org.kgusarov.krono.common
 
 import org.kgusarov.krono.KronoDecimalTimeUnits
 import org.kgusarov.krono.KronoUnit
+import org.kgusarov.krono.calculation.findMostLikelyADYear
 import org.kgusarov.krono.extensions.get
+import org.kgusarov.krono.extensions.safeParseInt
+import org.kgusarov.krono.extensions.unaryMinus
 import java.math.BigDecimal
 
 typealias ParseNumberPattern = (String) -> BigDecimal?
@@ -10,6 +13,27 @@ typealias ParseNumberPattern = (String) -> BigDecimal?
 typealias ParseYear = (String) -> Int
 
 typealias ParseOrdinalNumberPattern = (String) -> Int
+
+internal fun parseYearMatch(
+    match: String,
+    beforeChrist: Regex,
+    afterChrist: Regex,
+): Int {
+    return when {
+        beforeChrist.containsMatchIn(match) -> {
+            -match.replace(beforeChrist, "").safeParseInt()
+        }
+
+        afterChrist.containsMatchIn(match) -> {
+            match.replace(afterChrist, "").safeParseInt() ?: 0
+        }
+
+        else -> {
+            val rawYearNumber = match.safeParseInt() ?: 0
+            return findMostLikelyADYear(rawYearNumber)
+        }
+    }
+}
 
 internal fun parseTimeUnits(
     timeUnitText: String,

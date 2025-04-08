@@ -19,7 +19,7 @@ internal class PtCasualTest {
             it.start.assertDate(expectedDate)
         }
     }
-    
+
     @Test
     internal fun `random negative text`() {
         testUnexpectedResult(Krono.ptCasual, "naohoje")

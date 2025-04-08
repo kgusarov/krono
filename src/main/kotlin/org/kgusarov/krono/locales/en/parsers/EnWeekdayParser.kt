@@ -39,6 +39,7 @@ class EnWeekdayParser : AbstractWeekdayParser() {
                         DayOfWeek.SATURDAY
                     }
                 }
+
                 weekdayWord == "weekday" -> {
                     val refWeekday = context.reference.withAdjustedTimezone().dayOfWeek
                     if (refWeekday == DayOfWeek.SUNDAY || refWeekday == DayOfWeek.SATURDAY) {
@@ -54,6 +55,7 @@ class EnWeekdayParser : AbstractWeekdayParser() {
                         DayOfWeek.of(weekdayIndexNormalized + 1)
                     }
                 }
+
                 else -> return ParserResultFactory(null)
             }
 

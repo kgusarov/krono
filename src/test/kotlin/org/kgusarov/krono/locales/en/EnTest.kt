@@ -254,8 +254,8 @@ internal class EnTest {
     internal fun `customize by removing time extraction`() {
         val custom = Krono(
             KronoConfiguration(
-                En.casual.parsers.filter {
-                    p -> p !is EnTimeExpressionParser
+                En.casual.parsers.filter { p ->
+                    p !is EnTimeExpressionParser
                 }.toMutableList(),
                 En.casual.refiners.toMutableList(),
             )

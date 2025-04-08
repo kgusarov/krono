@@ -18,7 +18,7 @@ internal class EnCasualRelativeTest {
             assertThat(it.text).isEqualTo("next 2 weeks")
             assertThat(it.tags()).contains("result/relativeDate")
 
-            with (it.start) {
+            with(it.start) {
                 assertThat(year()).isEqualTo(2016)
                 assertThat(month()).isEqualTo(10)
                 assertThat(day()).isEqualTo(15)
@@ -31,7 +31,7 @@ internal class EnCasualRelativeTest {
     internal fun `next 2 days`() {
         testSingleCase(Krono.enCasual, "next 2 days", REF_DATE) {
             assertThat(it.text).isEqualTo("next 2 days")
-            with (it.start) {
+            with(it.start) {
                 assertThat(year()).isEqualTo(2016)
                 assertThat(month()).isEqualTo(10)
                 assertThat(day()).isEqualTo(3)
@@ -44,7 +44,7 @@ internal class EnCasualRelativeTest {
     internal fun `next two years`() {
         testSingleCase(Krono.enCasual, "next two years", REF_DATE) {
             assertThat(it.text).isEqualTo("next two years")
-            with (it.start) {
+            with(it.start) {
                 assertThat(year()).isEqualTo(2018)
                 assertThat(month()).isEqualTo(10)
                 assertThat(day()).isEqualTo(1)
@@ -57,7 +57,7 @@ internal class EnCasualRelativeTest {
     internal fun `next 2 weeks 3 days`() {
         testSingleCase(Krono.enCasual, "next 2 weeks 3 days", REF_DATE) {
             assertThat(it.text).isEqualTo("next 2 weeks 3 days")
-            with (it.start) {
+            with(it.start) {
                 assertThat(year()).isEqualTo(2016)
                 assertThat(month()).isEqualTo(10)
                 assertThat(day()).isEqualTo(18)
@@ -70,7 +70,7 @@ internal class EnCasualRelativeTest {
     internal fun `after a year`() {
         testSingleCase(Krono.enCasual, "after a year", REF_DATE) {
             assertThat(it.text).isEqualTo("after a year")
-            with (it.start) {
+            with(it.start) {
                 assertThat(year()).isEqualTo(2017)
                 assertThat(month()).isEqualTo(10)
                 assertThat(day()).isEqualTo(1)
@@ -85,7 +85,7 @@ internal class EnCasualRelativeTest {
             assertThat(it.text).isEqualTo("after an hour")
             assertThat(it.tags()).contains("result/relativeDate", "result/relativeDateAndTime")
 
-            with (it.start) {
+            with(it.start) {
                 assertThat(year()).isEqualTo(2016)
                 assertThat(month()).isEqualTo(10)
                 assertThat(day()).isEqualTo(1)
@@ -99,7 +99,7 @@ internal class EnCasualRelativeTest {
     internal fun `last 2 weeks`() {
         testSingleCase(Krono.enCasual, "last 2 weeks", REF_DATE) {
             assertThat(it.text).isEqualTo("last 2 weeks")
-            with (it.start) {
+            with(it.start) {
                 assertThat(year()).isEqualTo(2016)
                 assertThat(month()).isEqualTo(9)
                 assertThat(day()).isEqualTo(17)
@@ -112,7 +112,7 @@ internal class EnCasualRelativeTest {
     internal fun `last two weeks`() {
         testSingleCase(Krono.enCasual, "last two weeks", REF_DATE) {
             assertThat(it.text).isEqualTo("last two weeks")
-            with (it.start) {
+            with(it.start) {
                 assertThat(year()).isEqualTo(2016)
                 assertThat(month()).isEqualTo(9)
                 assertThat(day()).isEqualTo(17)
@@ -125,7 +125,7 @@ internal class EnCasualRelativeTest {
     internal fun `past 2 days`() {
         testSingleCase(Krono.enCasual, "past 2 days", REF_DATE) {
             assertThat(it.text).isEqualTo("past 2 days")
-            with (it.start) {
+            with(it.start) {
                 assertThat(year()).isEqualTo(2016)
                 assertThat(month()).isEqualTo(9)
                 assertThat(day()).isEqualTo(29)
@@ -138,7 +138,7 @@ internal class EnCasualRelativeTest {
     internal fun `+2 months, 5 days`() {
         testSingleCase(Krono.enCasual, "+2 months, 5 days", REF_DATE) {
             assertThat(it.text).isEqualTo("+2 months, 5 days")
-            with (it.start) {
+            with(it.start) {
                 assertThat(year()).isEqualTo(2016)
                 assertThat(month()).isEqualTo(12)
                 assertThat(day()).isEqualTo(6)
@@ -151,7 +151,7 @@ internal class EnCasualRelativeTest {
     internal fun `+15 minutes`() {
         testSingleCase(Krono.enCasual, "+15 minutes", REF_DATE2) {
             assertThat(it.text).isEqualTo("+15 minutes")
-            with (it.start) {
+            with(it.start) {
                 assertThat(hour()).isEqualTo(12)
                 assertThat(minute()).isEqualTo(29)
                 assertDate("2012-06-10T12:29:00")
@@ -163,7 +163,7 @@ internal class EnCasualRelativeTest {
     internal fun `+15min`() {
         testSingleCase(Krono.enCasual, "+15min", REF_DATE2) {
             assertThat(it.text).isEqualTo("+15min")
-            with (it.start) {
+            with(it.start) {
                 assertThat(hour()).isEqualTo(12)
                 assertThat(minute()).isEqualTo(29)
                 assertDate("2012-06-10T12:29:00")
@@ -175,7 +175,7 @@ internal class EnCasualRelativeTest {
     internal fun `+1 day 2 hour`() {
         testSingleCase(Krono.enCasual, "+1 day 2 hour", REF_DATE2) {
             assertThat(it.text).isEqualTo("+1 day 2 hour")
-            with (it.start) {
+            with(it.start) {
                 assertThat(day()).isEqualTo(11)
                 assertThat(hour()).isEqualTo(14)
                 assertThat(minute()).isEqualTo(14)
@@ -188,7 +188,7 @@ internal class EnCasualRelativeTest {
     internal fun `+1m`() {
         testSingleCase(Krono.enCasual, "+1m", REF_DATE2) {
             assertThat(it.text).isEqualTo("+1m")
-            with (it.start) {
+            with(it.start) {
                 assertThat(hour()).isEqualTo(12)
                 assertThat(minute()).isEqualTo(15)
                 assertDate("2012-06-10T12:15:00")
@@ -200,7 +200,7 @@ internal class EnCasualRelativeTest {
     internal fun `-3y`() {
         testSingleCase(Krono.enCasual, "-3y", "2015-07-10T12:14:00") {
             assertThat(it.text).isEqualTo("-3y")
-            with (it.start) {
+            with(it.start) {
                 assertThat(year()).isEqualTo(2012)
                 assertThat(month()).isEqualTo(7)
                 assertThat(day()).isEqualTo(10)
@@ -215,7 +215,7 @@ internal class EnCasualRelativeTest {
     internal fun `-2hr5min`() {
         testSingleCase(Krono.enCasual, "-2hr5min", REF_DATE) {
             assertThat(it.text).isEqualTo("-2hr5min")
-            with (it.start) {
+            with(it.start) {
                 assertThat(year()).isEqualTo(2016)
                 assertThat(month()).isEqualTo(10)
                 assertThat(day()).isEqualTo(1)
@@ -236,7 +236,7 @@ internal class EnCasualRelativeTest {
 
         testSingleCase(custom, "-2 hours 5 minutes", REF_DATE) {
             assertThat(it.text).isEqualTo("-2 hours 5 minutes")
-            with (it.start) {
+            with(it.start) {
                 assertThat(year()).isEqualTo(2016)
                 assertThat(month()).isEqualTo(10)
                 assertThat(day()).isEqualTo(1)

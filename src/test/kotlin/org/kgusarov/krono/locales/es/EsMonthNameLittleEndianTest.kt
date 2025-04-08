@@ -32,7 +32,7 @@ internal class EsMonthNameLittleEndianTest {
             it.end!!.assertDate(expectedEndDate)
         }
     }
-    
+
     @Test
     internal fun `impossible dates in strict mode`() {
         testUnexpectedResult(Krono.esStrict, "32 Agosto 2014")

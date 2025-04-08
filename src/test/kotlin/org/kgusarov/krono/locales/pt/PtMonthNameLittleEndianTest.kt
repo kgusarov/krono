@@ -32,7 +32,7 @@ internal class PtMonthNameLittleEndianTest {
             it.end!!.assertDate(expectedEndDate)
         }
     }
-    
+
     @Test
     internal fun `impossible dates in strict mode`() {
         testUnexpectedResult(Krono.ptStrict, "32 Agosto 2014")

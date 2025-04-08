@@ -61,9 +61,24 @@ internal class DeMonthNameLittleEndianTest {
         @JvmStatic
         fun rangeExpressionArgs(): Stream<Arguments> = Stream.of(
             Arguments.of("10. - 22. August 2012", "2012-08-10T12:00:00", "2012-08-10T12:00:00", "2012-08-22T12:00:00"),
-            Arguments.of("10. bis 22. Oktober 2012", "2012-08-10T12:00:00", "2012-10-10T12:00:00", "2012-10-22T12:00:00"),
-            Arguments.of("10. Oktober - 12. Dezember", "2012-08-10T12:00:00", "2012-10-10T12:00:00", "2012-12-12T12:00:00"),
-            Arguments.of("10. August - 12. Oktober 2013", "2012-08-10T12:00:00", "2013-08-10T12:00:00", "2013-10-12T12:00:00"),
+            Arguments.of(
+                "10. bis 22. Oktober 2012",
+                "2012-08-10T12:00:00",
+                "2012-10-10T12:00:00",
+                "2012-10-22T12:00:00"
+            ),
+            Arguments.of(
+                "10. Oktober - 12. Dezember",
+                "2012-08-10T12:00:00",
+                "2012-10-10T12:00:00",
+                "2012-12-12T12:00:00"
+            ),
+            Arguments.of(
+                "10. August - 12. Oktober 2013",
+                "2012-08-10T12:00:00",
+                "2013-08-10T12:00:00",
+                "2013-10-12T12:00:00"
+            ),
         )
     }
 }

@@ -12,10 +12,12 @@ abstract class AbstractParserWithWordBoundaryChecking : Parser {
     private var cachedInnerPattern: Regex? = null
     private var cachedPattern: Regex? = null
 
-    fun innerPatternHasChange(
+    open fun innerPatternHasChange(
         context: ParsingContext,
         currentInnerPattern: Regex,
     ): Boolean = innerPattern(context) != currentInnerPattern
+
+    open fun patternLeftBoundary() = PATTERN_LEFT_BOUNDARY
 
     override fun pattern(context: ParsingContext): Regex {
         val cachedInner = cachedInnerPattern
@@ -28,7 +30,7 @@ abstract class AbstractParserWithWordBoundaryChecking : Parser {
         cachedInnerPattern = innerPattern(context)
         cachedPattern =
             Regex(
-                "$PATTERN_LEFT_BOUNDARY${cachedInnerPattern!!.pattern}",
+                "${patternLeftBoundary()}${cachedInnerPattern!!.pattern}",
                 cachedInnerPattern!!.options,
             )
 

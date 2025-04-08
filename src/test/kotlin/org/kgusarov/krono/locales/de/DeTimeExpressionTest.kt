@@ -114,7 +114,7 @@ internal class DeTimeExpressionTest {
             }
         }
     }
-    
+
     @Test
     internal fun `range expression 18-10 - 22-32`() {
         testSingleCase(Krono.deCasual, "18:10 - 22:32", "2012-08-10T12:00:00") {

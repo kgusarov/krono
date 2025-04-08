@@ -14,7 +14,7 @@ internal class EnMergingRelativeDatesTest {
         testSingleCase(Krono.enCasual, "2 weeks after yesterday", REF_DATE) {
             assertThat(it.text).isEqualTo("2 weeks after yesterday")
 
-            with (it.start) {
+            with(it.start) {
                 assertThat(year()).isEqualTo(2022)
                 assertThat(month()).isEqualTo(2)
                 assertThat(day()).isEqualTo(15)
@@ -34,7 +34,7 @@ internal class EnMergingRelativeDatesTest {
         testSingleCase(Krono.enCasual, "2 months before 02/02", REF_DATE) {
             assertThat(it.text).isEqualTo("2 months before 02/02")
 
-            with (it.start) {
+            with(it.start) {
                 assertThat(year()).isEqualTo(2021)
                 assertThat(month()).isEqualTo(12)
                 assertThat(day()).isEqualTo(2)
@@ -53,7 +53,7 @@ internal class EnMergingRelativeDatesTest {
         testSingleCase(Krono.enCasual, "2 days after next Friday", REF_DATE) {
             assertThat(it.text).isEqualTo("2 days after next Friday")
 
-            with (it.start) {
+            with(it.start) {
                 assertThat(year()).isEqualTo(2022)
                 assertThat(month()).isEqualTo(2)
                 assertThat(day()).isEqualTo(13)

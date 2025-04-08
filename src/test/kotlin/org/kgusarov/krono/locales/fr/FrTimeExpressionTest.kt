@@ -114,7 +114,11 @@ internal class FrTimeExpressionTest {
         @JvmStatic
         fun combinedSingleExpressionArgs(): Stream<Arguments> = Stream.of(
             Arguments.of("Quelque chose se passe le 2014-04-18 à 3h00", "2012-08-10T12:00:00", "2014-04-18T03:00:00"),
-            Arguments.of("Quelque chose se passe le 10 Août 2012 à 10:12:59", "2012-08-10T12:00:00", "2012-08-10T10:12:59"),
+            Arguments.of(
+                "Quelque chose se passe le 10 Août 2012 à 10:12:59",
+                "2012-08-10T12:00:00",
+                "2012-08-10T10:12:59"
+            ),
             Arguments.of("Quelque chose se passe le 15juin 2016 20h", "2012-08-10T12:00:00", "2016-06-15T20:00:00"),
         )
 

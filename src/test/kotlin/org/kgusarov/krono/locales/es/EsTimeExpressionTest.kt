@@ -17,7 +17,7 @@ internal class EsTimeExpressionTest {
             assertThat(it.index).isEqualTo(12)
             assertThat(it.text).isEqualTo("las 6.13 AM")
 
-            with (it.start) {
+            with(it.start) {
                 assertThat(hour()).isEqualTo(6)
                 assertThat(minute()).isEqualTo(13)
 
@@ -25,17 +25,17 @@ internal class EsTimeExpressionTest {
             }
         }
     }
-    
+
     @Test
     internal fun `range expression 1`() {
         testSingleCase(Krono.esCasual, "8:10 - 12.32", "2012-08-10T12:00:00") {
             assertThat(it.index).isEqualTo(0)
             assertThat(it.text).isEqualTo("8:10 - 12.32")
-            
-            with (it.start) {
+
+            with(it.start) {
                 assertThat(hour()).isEqualTo(8)
                 assertThat(minute()).isEqualTo(10)
-                
+
                 assertThat(certainDay()).isFalse()
                 assertThat(certainMonth()).isFalse()
                 assertThat(certainYear()).isFalse()
@@ -43,14 +43,14 @@ internal class EsTimeExpressionTest {
                 assertThat(certainMinute()).isTrue()
                 assertThat(certainSecond()).isFalse()
                 assertThat(certainMillisecond()).isFalse()
-                
+
                 assertDate("2012-08-10T08:10:00")
             }
-            
+
             with(it.end!!) {
                 assertThat(hour()).isEqualTo(12)
                 assertThat(minute()).isEqualTo(32)
-                
+
                 assertThat(certainDay()).isFalse()
                 assertThat(certainMonth()).isFalse()
                 assertThat(certainYear()).isFalse()
