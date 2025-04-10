@@ -1,18 +1,17 @@
 package org.kgusarov.krono.locales.en.parsers
 
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings
-import org.kgusarov.krono.KronoComponents
-import org.kgusarov.krono.KronoMeridiem
 import org.kgusarov.krono.ParsedComponents
 import org.kgusarov.krono.ParsedResult
 import org.kgusarov.krono.ParsingContext
 import org.kgusarov.krono.RegExpMatchArray
 import org.kgusarov.krono.common.parsers.AbstractTimeExpressionParser
-import org.kgusarov.krono.extensions.compareTo
-import org.kgusarov.krono.extensions.plus
+import org.kgusarov.krono.common.parsers.RelativeDateTimeParserSupport
 
 @SuppressFBWarnings("EI_EXPOSE_REP")
-class EnTimeExpressionParser(strictMode: Boolean) : AbstractTimeExpressionParser(strictMode) {
+class EnTimeExpressionParser(strictMode: Boolean) :
+    AbstractTimeExpressionParser(strictMode),
+    RelativeDateTimeParserSupport {
     override fun primaryPrefix() = PRIMARY_PREFIX_PATTERN
 
     override fun followingPhase() = FOLLOWING_PHASE_PATTERN
@@ -23,33 +22,16 @@ class EnTimeExpressionParser(strictMode: Boolean) : AbstractTimeExpressionParser
         context: ParsingContext,
         match: RegExpMatchArray,
     ): ParsedComponents? {
-        val components = super.extractPrimaryTimeComponents(context, match) ?: return null
-
-        if (match[0]!!.endsWith("night")) {
-            val hour = components.hour()
-            if (hour >= 6 && hour < 12) {
-                components.assign(KronoComponents.Hour, components.hour() + 12)
-                components.assign(KronoComponents.Meridiem, KronoMeridiem.PM)
-            } else if (hour < 6) {
-                components.assign(KronoComponents.Meridiem, KronoMeridiem.AM)
-            }
-        }
-
-        if (match[0]!!.endsWith("afternoon")) {
-            components.assign(KronoComponents.Meridiem, KronoMeridiem.PM)
-            val hour = components.hour()
-            if (hour >= 0 && hour <= 6) {
-                components.assign(KronoComponents.Hour, components.hour() + 12)
-            }
-        }
-
-        if (match[0]!!.endsWith("morning")) {
-            components.assign(KronoComponents.Meridiem, KronoMeridiem.AM)
-            val hour = components.hour()
-            if (hour < 12) {
-                components.assign(KronoComponents.Hour, components.hour())
-            }
-        }
+        val components =
+            extractPrimaryTimeComponents(
+                context,
+                match,
+                "night",
+                "afternoon",
+                "morning",
+            ) { c, m ->
+                super<AbstractTimeExpressionParser>.extractPrimaryTimeComponents(c, m)
+            } ?: return null
 
         return components.addTag("parser/ENTimeExpressionParser")
     }

@@ -7,12 +7,13 @@ import org.kgusarov.krono.ParserResultFactory
 import org.kgusarov.krono.ParsingComponents
 import org.kgusarov.krono.ParsingContext
 import org.kgusarov.krono.RegExpMatchArray
-import org.kgusarov.krono.common.parsers.AbstractRelativeDateFormatParser
+import org.kgusarov.krono.common.parsers.AbstractParserWithWordBoundaryChecking
+import org.kgusarov.krono.common.parsers.RelativeDateTimeParserSupport
 import org.kgusarov.krono.locales.en.EnConstants
 import org.kgusarov.krono.utils.matchAnyPattern
 
 @SuppressFBWarnings("EI_EXPOSE_REP")
-class EnRelativeDateFormatParser : AbstractRelativeDateFormatParser() {
+class EnRelativeDateFormatParser : AbstractParserWithWordBoundaryChecking(), RelativeDateTimeParserSupport {
     override fun innerPattern(context: ParsingContext) = PATTERN
 
     override fun innerExtract(

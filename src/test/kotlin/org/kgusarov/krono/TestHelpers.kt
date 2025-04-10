@@ -314,3 +314,19 @@ internal fun testRangeExpression(
         it.end!!.assertDate(expectedEndDate)
     }
 }
+
+internal fun testUnexpectedResult(
+    strictKrono: Krono,
+    casualKrono: Krono,
+    strict: Boolean,
+    text: String,
+) {
+    testUnexpectedResult(
+        if (strict) {
+            strictKrono
+        } else {
+            casualKrono
+        },
+        text
+    )
+}

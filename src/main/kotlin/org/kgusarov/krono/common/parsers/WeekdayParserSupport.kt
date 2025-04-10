@@ -2,8 +2,8 @@ package org.kgusarov.krono.common.parsers
 
 import org.kgusarov.krono.RegExpMatchArray
 
-abstract class AbstractWeekdayParser : AbstractParserWithWordBoundaryChecking() {
-    protected fun getModifierWord(
+interface WeekdayParserSupport {
+    fun getModifierWord(
         match: RegExpMatchArray,
         prefixGroup: Int,
         postfixGroup: Int,

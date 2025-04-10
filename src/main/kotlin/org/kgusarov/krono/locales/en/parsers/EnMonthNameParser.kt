@@ -1,22 +1,19 @@
 package org.kgusarov.krono.locales.en.parsers
 
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings
-import org.kgusarov.krono.KronoComponents
 import org.kgusarov.krono.ParserResult
-import org.kgusarov.krono.ParserResultFactory
 import org.kgusarov.krono.ParsingContext
 import org.kgusarov.krono.RegExpMatchArray
 import org.kgusarov.krono.TextOrEndIndexInputFactory
-import org.kgusarov.krono.calculation.findYearClosestToRef
 import org.kgusarov.krono.common.parsers.AbstractParserWithWordBoundaryChecking
-import org.kgusarov.krono.extensions.not
+import org.kgusarov.krono.common.parsers.MonthNameParserSupport
 import org.kgusarov.krono.extensions.plus
 import org.kgusarov.krono.locales.en.EnConstants
 import org.kgusarov.krono.locales.en.parseYear
 import org.kgusarov.krono.utils.matchAnyPattern
 
 @SuppressFBWarnings("EI_EXPOSE_REP")
-class EnMonthNameParser : AbstractParserWithWordBoundaryChecking() {
+class EnMonthNameParser : AbstractParserWithWordBoundaryChecking(), MonthNameParserSupport {
     override fun innerPattern(context: ParsingContext) = PATTERN
 
     override fun innerExtract(
@@ -35,21 +32,16 @@ class EnMonthNameParser : AbstractParserWithWordBoundaryChecking() {
                 TextOrEndIndexInputFactory(match.index + matched.length),
             )
 
-        result.start.imply(KronoComponents.Day, 1)
         result.start.addTag("parser/ENMonthNameParser")
-
-        val month = EnConstants.MONTH_DICTIONARY[monthName]!!
-        result.start.assign(KronoComponents.Month, month)
-
-        if (!match[YEAR_GROUP]) {
-            val year = findYearClosestToRef(context.instant, 1, month)
-            result.start.imply(KronoComponents.Year, year)
-        } else {
-            val year = parseYear(match[YEAR_GROUP]!!)
-            result.start.assign(KronoComponents.Year, year)
-        }
-
-        return ParserResultFactory(result)
+        return applyMonth(
+            context,
+            match,
+            result,
+            monthName,
+            EnConstants.MONTH_DICTIONARY,
+            YEAR_GROUP,
+            ::parseYear,
+        )
     }
 
     @Suppress(

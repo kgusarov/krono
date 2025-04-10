@@ -6,13 +6,14 @@ import org.kgusarov.krono.ParserResultFactory
 import org.kgusarov.krono.ParsingContext
 import org.kgusarov.krono.RegExpMatchArray
 import org.kgusarov.krono.common.calculation.createParsingComponentsAtWeekday
-import org.kgusarov.krono.common.parsers.AbstractWeekdayParser
+import org.kgusarov.krono.common.parsers.AbstractParserWithWordBoundaryChecking
+import org.kgusarov.krono.common.parsers.WeekdayParserSupport
 import org.kgusarov.krono.locales.en.EnConstants
 import org.kgusarov.krono.utils.matchAnyPattern
 import java.time.DayOfWeek
 
 @SuppressFBWarnings("EI_EXPOSE_REP")
-class EnWeekdayParser : AbstractWeekdayParser() {
+class EnWeekdayParser : AbstractParserWithWordBoundaryChecking(), WeekdayParserSupport {
     override fun innerPattern(context: ParsingContext) = PATTERN
 
     override fun innerExtract(

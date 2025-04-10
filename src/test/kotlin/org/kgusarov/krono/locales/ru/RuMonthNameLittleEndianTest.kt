@@ -36,20 +36,20 @@ internal class RuMonthNameLittleEndianTest {
         testSingleCase(
             Krono.ruCasual,
             "22-23 фев в 7",
-            "2016-02-15T12:00:00",
+            "2016-03-15T12:00:00",
             ParsingOption(forwardDate = true)
         ) {
-            //it.start.assertDate("2017-02-22T07:00:00")
-            //it.end!!.assertDate("2017-02-23T07:00:00")
+            it.start.assertDate("2017-02-22T07:00:00")
+            it.end!!.assertDate("2017-02-23T07:00:00")
         }
     }
 
     @Test
     internal fun `random negative text`() {
-        testUnexpectedResult(Krono.ruCasual, "32 августа 2014")
-        testUnexpectedResult(Krono.ruCasual, "29 февраля 2014")
-        testUnexpectedResult(Krono.ruCasual, "32 августа")
-        testUnexpectedResult(Krono.ruCasual, "29 февраля")
+        testUnexpectedResult(Krono.ruStrict, "32 августа 2014")
+        testUnexpectedResult(Krono.ruStrict, "29 февраля 2014")
+        testUnexpectedResult(Krono.ruStrict, "32 августа")
+        testUnexpectedResult(Krono.ruStrict, "29 февраля")
     }
 
     companion object {
@@ -67,7 +67,7 @@ internal class RuMonthNameLittleEndianTest {
             Arguments.of("5 мая 12:00", "2012-08-10T12:00:00", "2012-05-05T12:00:00"),
             Arguments.of("двадцать пятое мая", "2012-08-10T12:00:00", "2012-05-25T12:00:00"),
             Arguments.of("двадцать пятое мая 2020 года", "2012-08-10T12:00:00", "2020-05-25T12:00:00"),
-            //Arguments.of("24го октября, 9:00", "2017-08-10T12:00:00", "2017-10-24T09:00:00"),
+            Arguments.of("24го октября, 9:00", "2017-08-10T12:00:00", "2017-10-24T09:00:00"),
             Arguments.of("03 авг 96", "2012-08-10T12:00:00", "1996-08-03T12:00:00"),
         )
 
